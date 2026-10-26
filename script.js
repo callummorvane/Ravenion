@@ -2,6 +2,24 @@ const API_URL = "https://script.google.com/macros/s/AKfycbzROijSMlW53vyDqMgYIGWW
 
 let globalData = {};
 
+// Fungsi untuk ganti halaman (tab)
+function switchPage(pageId) {
+    // Sembunyikan semua halaman
+    document.querySelectorAll('.page-content').forEach(page => {
+        page.classList.remove('active-page');
+    });
+    // Matikan semua tombol navigasi
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Aktifkan halaman yang dipilih
+    document.getElementById(`page-${pageId}`).classList.add('active-page');
+    
+    // Cari tombol yang diklik lalu aktifkan
+    event.target.classList.add('active');
+}
+
 async function fetchKamarData() {
     try {
         let response = await fetch(`${API_URL}?action=all`);
@@ -16,7 +34,7 @@ async function fetchKamarData() {
 function renderWebsite(data) {
     // 1. Render Profil
     if (data.profil && data.profil.length > 0) {
-        document.getElementById("nama-kamar").innerText = data.profil[0].Isi || "Kamar Rahasia";
+        document.getElementById("nama-kamar").innerText = data.profil[0].Isi || "Kamar Ravenclaw";
         document.getElementById("slogan-kamar").innerText = data.profil[1]?.Isi || "";
         document.getElementById("desc-kamar").innerText = data.profil[2]?.Isi || "";
     }
@@ -45,7 +63,7 @@ function renderWebsite(data) {
             `;
         });
     } else {
-        gridPenghuni.innerHTML = "<p>Belum ada data penghuni bulan ini.</p>";
+        gridPenghuni.innerHTML = "<p>Belum ada data penghuni bulan ini di Google Sheets.</p>";
     }
 
     // 4. Render Arsip Rangkuman
@@ -54,12 +72,14 @@ function renderWebsite(data) {
     if (data.arsipRangkuman && data.arsipRangkuman.length > 0) {
         data.arsipRangkuman.forEach(r => {
             listRangkuman.innerHTML += `
-                <div class="item-rangkuman" style="margin-bottom: 10px; padding: 10px; background: #222227; border-radius: 6px;">
+                <div class="item-rangkuman" style="margin-bottom: 12px; padding: 12px; background: #152242; border-radius: 6px; border-left: 3px solid #c5a059;">
                     <strong>[${r.Bulan}] ${r.JudulRangkuman}</strong>
-                    <p>${r.IsiCerita}</p>
+                    <p style="margin: 5px 0 0 0; color: #94a3b8;">${r.IsiCerita}</p>
                 </div>
             `;
         });
+    } else {
+        listRangkuman.innerHTML = "<p>Belum ada arsip rangkuman.</p>";
     }
 
     // 5. Setup Dropdown Arsip Anak Berdasarkan Bulan

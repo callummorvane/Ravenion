@@ -1,7 +1,17 @@
+:root {
+    --bg-primary: #0a0f1d;      /* Biru dongker sangat gelap (Ravenclaw deep night) */
+    --bg-secondary: #111a30;    /* Biru dongker card */
+    --border-color: #1e2c4f;    /* Border biru tua */
+    --accent-bronze: #c5a059;   /* Warna Bronze khas Ravenclaw */
+    --accent-glow: #e2c07a;     /* Bronze lebih terang untuk hover */
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121214;
-    color: #e1e1e6;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
     margin: 0;
     padding: 0;
 }
@@ -9,29 +19,49 @@ body {
 header {
     text-align: center;
     padding: 40px 20px;
-    background: #1a1a1e;
-    border-bottom: 2px solid #29292e;
+    background: linear-gradient(135deg, #0d152c, #070a14);
+    border-bottom: 3px solid var(--accent-bronze);
 }
 
+header h1 {
+    color: var(--accent-bronze);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+/* Navigasi Tombol Per Halaman */
 nav {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    background: #161619;
+    gap: 15px;
+    background: #0d1322;
     padding: 15px;
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid var(--border-color);
 }
 
-nav a {
-    color: #a8a8b3;
-    text-decoration: none;
+nav .nav-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
     font-weight: bold;
+    transition: all 0.3s ease;
 }
 
-nav a:hover {
-    color: #00b37e;
+nav .nav-btn:hover {
+    color: var(--accent-bronze);
+    border-color: var(--accent-bronze);
+}
+
+nav .nav-btn.active {
+    background: var(--accent-bronze);
+    color: #0d152c;
+    border-color: var(--accent-bronze);
 }
 
 main {
@@ -40,12 +70,30 @@ main {
     padding: 0 20px;
 }
 
-section {
-    background: #1a1a1e;
-    padding: 25px;
+/* Sistem Halaman (Sembunyikan yang tidak aktif) */
+.page-content {
+    display: none;
+    background: var(--bg-secondary);
+    padding: 30px;
     border-radius: 12px;
-    margin-bottom: 30px;
-    border: 1px solid #29292e;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.page-content.active-page {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2, h3 {
+    color: var(--accent-bronze);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
 }
 
 .grid-container {
@@ -56,11 +104,11 @@ section {
 }
 
 .card-anak, .card {
-    background: #222227;
+    background: #152242;
     padding: 15px;
     border-radius: 8px;
     text-align: center;
-    border: 1px solid #323238;
+    border: 1px solid var(--border-color);
 }
 
 .card-anak img, .card img {
@@ -69,26 +117,32 @@ section {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
+    border: 2px solid var(--accent-bronze);
 }
 
 .vc-badge {
     font-size: 0.85em;
-    color: #00b37e;
+    color: var(--accent-bronze);
     font-weight: bold;
 }
 
 select {
-    background: #222227;
-    color: #e1e1e6;
-    padding: 8px 12px;
+    background: #152242;
+    color: var(--text-main);
+    padding: 10px 15px;
     border-radius: 6px;
-    border: 1px solid #323238;
+    border: 1px solid var(--border-color);
     margin-bottom: 15px;
+    outline: none;
+}
+
+select:focus {
+    border-color: var(--accent-bronze);
 }
 
 footer {
     text-align: center;
-    padding: 20px;
-    color: #7c7c8a;
+    padding: 30px;
+    color: var(--text-muted);
     font-size: 0.9em;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Kamar</title>
+    <title>Profil Kamar - Ravenclaw</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,15 +12,16 @@
         <p id="slogan-kamar"></p>
     </header>
 
+    <!-- Navigasi Per Halaman -->
     <nav>
-        <a href="#profil">Profil & Leadroom</a>
-        <a href="#penghuni">Anak Kamar Bulan Ini</a>
-        <a href="#arsip">Arsip & Rangkuman</a>
+        <button class="nav-btn active" onclick="switchPage('profil')">Profil & Leadroom</button>
+        <button class="nav-btn" onclick="switchPage('penghuni')">Anak Kamar Bulan Ini</button>
+        <button class="nav-btn" onclick="switchPage('arsip')">Arsip & Rangkuman</button>
     </nav>
 
     <main>
-        <!-- Section Profil & Leadroom -->
-        <section id="profil">
+        <!-- Halaman 1: Profil & Leadroom -->
+        <section id="page-profil" class="page-content active-page">
             <h2>Tentang Kamar</h2>
             <p id="desc-kamar"></p>
             
@@ -28,14 +29,14 @@
             <div id="leadroom-card" class="card"></div>
         </section>
 
-        <!-- Section Penghuni Bulan Ini -->
-        <section id="penghuni">
+        <!-- Halaman 2: Penghuni Bulan Ini -->
+        <section id="page-penghuni" class="page-content">
             <h2>Penghuni Kamar Bulan Ini</h2>
             <div id="grid-penghuni" class="grid-container"></div>
         </section>
 
-        <!-- Section Arsip -->
-        <section id="arsip">
+        <!-- Halaman 3: Arsip & Rangkuman -->
+        <section id="page-arsip" class="page-content">
             <h2>Arsip Kamar</h2>
             
             <div class="archive-box">
@@ -43,7 +44,7 @@
                 <div id="list-rangkuman"></div>
             </div>
 
-            <div class="archive-box" style="margin-top: 20px;">
+            <div class="archive-box" style="margin-top: 25px;">
                 <h3>Arsip Foto & Nama Anak Berdasarkan Bulan</h3>
                 <select id="select-bulan" onchange="filterArsipAnak()">
                     <option value="">Pilih Bulan...</option>
@@ -54,7 +55,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Dormitory Profile. Hosted on GitHub Pages.</p>
+        <p>&copy; 2026 Ravenclaw Dormitory. Hosted on GitHub Pages.</p>
     </footer>
 
     <script src="script.js"></script>
