@@ -3,59 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Kamar - Ravenclaw</title>
+    <title>Ravenion</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1 id="nama-kamar">Memuat Kamar...</h1>
-        <p id="slogan-kamar"></p>
+        <h1 id="nama-kamar">Ravenion</h1>
+        <p id="slogan-kamar">Memuat Slogan...</p>
     </header>
 
-    <!-- Navigasi Per Halaman -->
+    <!-- 4 Tab Navigasi -->
     <nav>
-        <button class="nav-btn active" onclick="switchPage('profil')">Profil & Leadroom</button>
-        <button class="nav-btn" onclick="switchPage('penghuni')">Anak Kamar Bulan Ini</button>
-        <button class="nav-btn" onclick="switchPage('arsip')">Arsip & Rangkuman</button>
+        <button class="nav-btn active" onclick="switchPage('profil')">Profile</button>
+        <button class="nav-btn" onclick="switchPage('soldiers')">Part of Us</button>
+        <button class="nav-btn" onclick="switchPage('summaries')">Summaries</button>
+        <button class="nav-btn" onclick="switchPage('memories')">Memories</button>
     </nav>
 
     <main>
-        <!-- Halaman 1: Profil & Leadroom -->
+        <!-- Tab 1: Profile -->
         <section id="page-profil" class="page-content active-page">
-            <h2>Tentang Kamar</h2>
-            <p id="desc-kamar"></p>
+            <h2>About Ravenion</h2>
+            <p id="desc-kamar">Memuat deskripsi kamar...</p>
             
-            <h3>Penjaga Kamar (Leadroom)</h3>
+            <h3>Leadroom</h3>
             <div id="leadroom-card" class="card"></div>
         </section>
 
-        <!-- Halaman 2: Penghuni Bulan Ini -->
-        <section id="page-penghuni" class="page-content">
-            <h2>Penghuni Kamar Bulan Ini</h2>
+        <!-- Tab 2: Part of Us (Ravenion's Soldiers) -->
+        <section id="page-soldiers" class="page-content">
+            <h2>Ravenion's Soldiers</h2>
+            <p class="section-desc">Penghuni kamar bulan ini yang siap menjaga benteng.</p>
             <div id="grid-penghuni" class="grid-container"></div>
         </section>
 
-        <!-- Halaman 3: Arsip & Rangkuman -->
-        <section id="page-arsip" class="page-content">
-            <h2>Arsip Kamar</h2>
+        <!-- Tab 3: Summaries (Arsip Rangkuman) -->
+        <section id="page-summaries" class="page-content">
+            <h2>Summaries</h2>
+            <p class="section-desc">Arsip rangkuman cerita dari bulan ke bulan.</p>
+            <div id="list-rangkuman"></div>
+        </section>
+
+        <!-- Tab 4: Memories (Arsip Foto & Nama per Bulan-Tahun) -->
+        <section id="page-memories" class="page-content">
+            <h2>Memories</h2>
+            <p class="section-desc">Jejak kenangan Nion's Soldier di setiap periode.</p>
             
             <div class="archive-box">
-                <h3>Rangkuman Bulanan</h3>
-                <div id="list-rangkuman"></div>
-            </div>
-
-            <div class="archive-box" style="margin-top: 25px;">
-                <h3>Arsip Foto & Nama Anak Berdasarkan Bulan</h3>
+                <label for="select-bulan">Pilih Periode Bulan:</label>
                 <select id="select-bulan" onchange="filterArsipAnak()">
                     <option value="">Pilih Bulan...</option>
                 </select>
-                <div id="grid-arsip-anak" class="grid-container"></div>
+                <div id="grid-arsip-anak" class="grid-container" style="margin-top: 15px;"></div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Ravenclaw Dormitory. Hosted on GitHub Pages.</p>
+        <p>&copy; 2026 Ravenion Dormitory. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>

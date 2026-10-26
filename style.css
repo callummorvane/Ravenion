@@ -1,9 +1,9 @@
 :root {
-    --bg-primary: #0a0f1d;      /* Biru dongker sangat gelap (Ravenclaw deep night) */
+    --bg-primary: #0a0f1d;      /* Biru dongker sangat gelap */
     --bg-secondary: #111a30;    /* Biru dongker card */
     --border-color: #1e2c4f;    /* Border biru tua */
     --accent-bronze: #c5a059;   /* Warna Bronze khas Ravenclaw */
-    --accent-glow: #e2c07a;     /* Bronze lebih terang untuk hover */
+    --accent-glow: #e2c07a;     
     --text-main: #e2e8f0;
     --text-muted: #94a3b8;
 }
@@ -26,14 +26,20 @@ header {
 header h1 {
     color: var(--accent-bronze);
     margin-bottom: 5px;
-    letter-spacing: 1px;
+    font-size: 2.2rem;
+    letter-spacing: 1.5px;
 }
 
-/* Navigasi Tombol Per Halaman */
+header p {
+    color: var(--text-muted);
+}
+
+/* Navigasi 4 Tab */
 nav {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
     background: #0d1322;
     padding: 15px;
     position: sticky;
@@ -46,7 +52,7 @@ nav .nav-btn {
     background: transparent;
     color: var(--text-muted);
     border: 1px solid var(--border-color);
-    padding: 10px 20px;
+    padding: 10px 18px;
     border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
@@ -70,7 +76,7 @@ main {
     padding: 0 20px;
 }
 
-/* Sistem Halaman (Sembunyikan yang tidak aktif) */
+/* Sistem Halaman Per Tab */
 .page-content {
     display: none;
     background: var(--bg-secondary);
@@ -94,11 +100,18 @@ h2, h3 {
     color: var(--accent-bronze);
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 8px;
+    margin-top: 0;
+}
+
+.section-desc {
+    color: var(--text-muted);
+    font-size: 0.95em;
+    margin-bottom: 20px;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 15px;
     margin-top: 15px;
 }
@@ -124,6 +137,7 @@ h2, h3 {
     font-size: 0.85em;
     color: var(--accent-bronze);
     font-weight: bold;
+    margin-top: 5px;
 }
 
 select {
@@ -132,7 +146,8 @@ select {
     padding: 10px 15px;
     border-radius: 6px;
     border: 1px solid var(--border-color);
-    margin-bottom: 15px;
+    width: 100%;
+    max-width: 300px;
     outline: none;
 }
 
