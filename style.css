@@ -1,0 +1,94 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121214;
+    color: #e1e1e6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #1a1a1e;
+    border-bottom: 2px solid #29292e;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #161619;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    color: #a8a8b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00b37e;
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+section {
+    background: #1a1a1e;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px solid #29292e;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.card-anak, .card {
+    background: #222227;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #323238;
+}
+
+.card-anak img, .card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.vc-badge {
+    font-size: 0.85em;
+    color: #00b37e;
+    font-weight: bold;
+}
+
+select {
+    background: #222227;
+    color: #e1e1e6;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #323238;
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #7c7c8a;
+    font-size: 0.9em;
+}
